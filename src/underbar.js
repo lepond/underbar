@@ -84,7 +84,7 @@
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
-    return _.filter(collection, function (index) {return test(index) != true;});
+    return _.filter(collection, function (index) {return !test(index);});
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
   };
