@@ -171,10 +171,10 @@
   _.every = function(collection, iterator) {
 
     return _.reduce(collection, function (totalTrue, index) {
-      if (iterator(index) === false || totalTrue) {
+      if (!iterator(index) || totalTrue) {
         return false;
-      } else { return true}
-    });
+      } else { return true;}
+    }, true);
     // TIP: Try re-using reduce() here.
   };
 
