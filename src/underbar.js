@@ -169,6 +169,12 @@
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
+
+    return _.reduce(collection, function (totalTrue, index) {
+      if (iterator(index) === false) {
+        return false;
+      } else { return true}
+    });
     // TIP: Try re-using reduce() here.
   };
 
