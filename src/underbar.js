@@ -171,7 +171,7 @@
   _.every = function(collection, iterator) {
 
     return _.reduce(collection, function (totalTrue, index) {
-      if (iterator(index) === false) {
+      if (iterator(index) === false || totalTrue) {
         return false;
       } else { return true}
     });
