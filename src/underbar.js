@@ -273,6 +273,20 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    var argsArray = [] // this stores arguments that have been passed
+    var resultsArray = []; // this stores results of executed functions with the arguments that have been passed
+    // the index of an argument and the result of passing that argument through our function should be the same, 
+    // so if the argument exists in argsArray, we can return the result from resultsArray without passing the function
+
+    return function (args) {
+      if (_.contains(argsArray, args)) {
+        return resultsArray[_.indexOf(argsArray,args)]; 
+      }  else {
+        argsArray.push(args);
+        resultsArray.push(func.apply(this, arguments));
+        return resultsArray[resultsArray.length-1];
+      }
+    }
   };
 
   // Delays a function for the given number of milliseconds, and then calls
