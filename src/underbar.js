@@ -273,10 +273,8 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
-    var argsArray = [] // this stores arguments that have been passed
-    var resultsArray = []; // this stores results of executed functions with the arguments that have been passed
-    // the index of an argument and the result of passing that argument through our function should be the same, 
-    // so if the argument exists in argsArray, we can return the result from resultsArray without passing the function
+    var argsArray = [];
+    var resultsArray = []; 
 
     return function (args) {
       if (_.contains(argsArray, args)) {
