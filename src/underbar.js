@@ -310,9 +310,15 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
-    var copy = array;
-
-
+    var s=[], indexkeeper=[], randomIndex, alength=array.length;
+    while (s.length < alength) {
+      randomIndex = Math.floor(Math.random()*(alength));
+      if (!_.contains(indexkeeper, randomIndex)) {
+        indexkeeper.push(randomIndex);
+        s.push(array[randomIndex]);
+      }
+    }
+    return s;
   };
 
 
